@@ -61,3 +61,91 @@
 .card h2 {
   margin-top: 0;
 }
+
+.form-card {
+  margin-top: 24px;
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.form-group textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+button {
+  background-color: #111827;
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #1f2937;
+}
+
+button:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+.form-message {
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.history-list {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.history-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.history-card h2 {
+  margin-top: 0;
+  color: #111827;
+}
+
+.history-card p {
+  margin: 8px 0;
+}
