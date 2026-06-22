@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createApplication } from "../api/applicationApi";
 
 function CreateApplication() {
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("careerCraftUser"));
+
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
+    fullName: user?.fullName || "",
+    email: user?.email || "",
     education: "",
     skills: "",
     projects: "",
@@ -37,21 +42,17 @@ function CreateApplication() {
 
       setMessage("Application saved successfully.");
 
-      setFormData({
-        fullName: "",
-        email: "",
-        education: "",
-        skills: "",
-        projects: "",
-        experience: "",
-        jobRole: "",
-        companyName: "",
-        jobDescription: "",
-        tone: "professional",
-      });
+      setTimeout(() => {
+        navigate("/history");
+      }, 700);
     } catch (error) {
       console.error(error);
-      setMessage("Something went wrong. Application was not saved.");
+
+      const errorMessage =
+        error.response?.data?.message ||
+        "Something went wrong. Application was not saved.";
+
+      setMessage(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -157,7 +158,7 @@ function CreateApplication() {
             name="projects"
             value={formData.projects}
             onChange={handleChange}
-            placeholder="RAG Assistant, CyberX, DevNest"
+            placeholder="RAG Assistant, CyberX, CareerCraft AI"
             required
           />
         </div>
